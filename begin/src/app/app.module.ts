@@ -3,16 +3,21 @@ import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home.component';
+import { ChartPrognoseComponent } from './chart-prognose/chart-prognose.component';
+import { LeerlingenAantalService } from './leerling-prognose.service';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
     AppComponent,
-    HomeComponent
+    HomeComponent,
+    ChartPrognoseComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    HttpClientModule
   ],
-  providers: [],
+  providers: [LeerlingenAantalService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { LeerlingenAantalService } from './leerling-prognose.service';
 
 @Component({
   selector: 'app-root',
@@ -7,4 +8,15 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'app';
+
+  constructor(private _leerlingenAantal: LeerlingenAantalService) {}
+
+  ngOnInit() {
+    this._leerlingenAantal.getLeerlingenAantal()
+      .subscribe(res => {
+        console.log(res)
+      })
+  }
+
+
 }
