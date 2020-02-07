@@ -1,6 +1,0 @@
-{ 
-    "/api": {
-        "target": "http://test.ultimview.nl/rest/datawarehouse/request/v1",
-        "secure": false
-    }
-}
