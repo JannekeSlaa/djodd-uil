@@ -40,29 +40,29 @@ export class VerzuimPerStatusComponent implements OnInit {
           {
             label: bar1.label,
             data: this.retrieveStackedData(list, 0),
-            backgroundColor: bar1.getColor(0),
-            borderColor: bar1.getColor(0),
+            backgroundColor: bar1.backgroundColor,
+            borderColor: bar1.borderColor,
             borderWidth: bar1.borderWidth
           },
           {
             label: bar2.label,
             data: this.retrieveStackedData(list, 1),
-            backgroundColor: bar2.getColor(1),
-            borderColor: bar2.getColor(1),
+            backgroundColor: bar2.backgroundColor,
+            borderColor: bar2.borderColor,
             borderWidth: bar2.borderWidth
           },
           {
             label: bar3.label,
             data: this.retrieveStackedData(list, 2),
-            backgroundColor: bar3.getColor(2),
-            borderColor: bar3.getColor(2),
+            backgroundColor: bar3.backgroundColor,
+            borderColor: bar3.borderColor,
             borderWidth: bar3.borderWidth
           },
           {
             label: bar4.label,
             data: this.retrieveStackedData(list, 3),
-            backgroundColor: bar4.getColor(3),
-            borderColor: bar4.getColor(3),
+            backgroundColor: bar4.backgroundColor,
+            borderColor: bar4.borderColor,
             borderWidth: bar4.borderWidth
           }
         ]
@@ -83,7 +83,7 @@ export class VerzuimPerStatusComponent implements OnInit {
 
 
   getStackedBar(barLabel: string, list: Array<VerzuimPerStatus>, index: number): StackedBar {
-    return new StackedBar(barLabel, this.retrieveStackedData(list, index), ['#F28F49', '#EBCF46', '#41D99A', '#5AACFF']);
+    return new StackedBar(barLabel, this.retrieveStackedData(list, index), ['#F28F49', '#EBCF46', '#41D99A', '#5AACFF'], index);
   }
 
   retrieveStackedData(list: Array<VerzuimPerStatus>, index: number): Array<number> {

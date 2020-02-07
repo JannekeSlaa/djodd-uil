@@ -1,6 +1,7 @@
 import {Component, ElementRef, Input, OnInit, ViewChild} from '@angular/core';
-import { Chart } from  'chart.js';
+import { Chart } from 'chart.js';
 import {StackedBar} from '../models/StackedBar';
+import {draw} from 'patternomaly'
 
 @Component({
   selector: 'app-barchart',

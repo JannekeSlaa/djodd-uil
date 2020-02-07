@@ -10,7 +10,7 @@ import {GroepsgroottePerLeerjaar} from '../models/GroepsgroottePerLeerjaar';
 })
 export class GroepsgroottePerLeerjaarComponent implements OnInit {
   groepsgrootteList: Array<GroepsgroottePerLeerjaar>;
-  legenda: Array<string> = [];
+  labels: Array<string> = [];
   bars: Array<StackedBar> = [];
 
   constructor(private service: GroepsgrootteService) { }
@@ -21,18 +21,20 @@ export class GroepsgroottePerLeerjaarComponent implements OnInit {
   }
 
   map(): void {
-    this.legenda = [];
+    this.labels = [];
     const onderbouw = [];
     const bovenbouw = [];
-    const colors = ['#5DB6E2', '#F4BF3D'];
+    const colors = [];
+
     this.groepsgrootteList.forEach(element => {
-      this.legenda.push(element.leerjaar);
+      this.labels.push(element.leerjaar);
       onderbouw.push(element.onderbouw);
       bovenbouw.push(element.bovenbouw);
-      // colors.push(element.getColor());
+      colors.push(element.getColor());
     });
-
-    this.bars.push(new StackedBar('Onderbouw', onderbouw, colors), new StackedBar('Bovenbouw', bovenbouw, colors));
+    this.bars.push(new StackedBar('Onderbouw', onderbouw, colors, 0), 
+                   new StackedBar('Bovenbouw', bovenbouw, colors, 1)
+                   );
   }
 
   getCanvasId() {
@@ -43,7 +45,7 @@ export class GroepsgroottePerLeerjaarComponent implements OnInit {
     return this.bars;
   }
 
-  getLegenda() {
-    return this.legenda;
+  getLabels() {
+    return this.labels;
   }
 }
