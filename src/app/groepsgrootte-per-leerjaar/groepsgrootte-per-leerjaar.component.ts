@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit, Input, ViewChild, ElementRef} from '@angular/core';
 import {StackedBar} from '../models/StackedBar';
 import {GroepsgrootteService} from '../services/groepsgrootte/groepsgrootte.service';
 import {GroepsgroottePerLeerjaar} from '../models/GroepsgroottePerLeerjaar';
@@ -12,7 +12,6 @@ export class GroepsgroottePerLeerjaarComponent implements OnInit {
   groepsgrootteList: Array<GroepsgroottePerLeerjaar>;
   labels: Array<string> = [];
   bars: Array<StackedBar> = [];
-
   constructor(private service: GroepsgrootteService) { }
 
   ngOnInit() {
@@ -21,7 +20,6 @@ export class GroepsgroottePerLeerjaarComponent implements OnInit {
   }
 
   map(): void {
-    this.labels = [];
     const onderbouw = [];
     const bovenbouw = [];
     const colors = [];

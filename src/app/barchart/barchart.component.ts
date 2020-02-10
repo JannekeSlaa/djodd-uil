@@ -35,7 +35,7 @@ export class BarchartComponent implements OnInit {
             },
             stacked: true
           }],
-          yAxes: [{stacked: false}],
+          yAxes: [{stacked: true}],
         }
       }
     });
